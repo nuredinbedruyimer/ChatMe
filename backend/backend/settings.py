@@ -26,6 +26,8 @@ SECRET_KEY = 'django-insecure-s%qio700dy&h1_!3yh7mu!p3ry+s+!240uxnr6y6v#k59h&5ve
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+AUTH_USER_MODEL = 'account.User'
+
 ALLOWED_HOSTS = []
 
 SIMPLE_JWT = {
@@ -51,6 +53,7 @@ CSRF_TRUSTED_ORGINS = [
 
 
 
+
 # Application definition
 
 
@@ -64,13 +67,14 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_simplejwt', 
     'corsheaders',  
+    'account'
 ]
 
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
