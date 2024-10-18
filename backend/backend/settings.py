@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -26,7 +25,12 @@ SECRET_KEY = 'django-insecure-s%qio700dy&h1_!3yh7mu!p3ry+s+!240uxnr6y6v#k59h&5ve
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
+#  Tell Django To Use Our custome Model instead od the built in User Model come from Django
+
 AUTH_USER_MODEL = 'account.User'
+
+#  It Set When We Make DEBUG = False to only allow certain host
 
 ALLOWED_HOSTS = []
 
@@ -43,11 +47,16 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated',  
     ],
 }
-CORS_ALLOWED_ORGINS = [
-    "http://127.0.0.1:5173/"
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5173",
+    "http://localhost:5173"
 ]
+
 CSRF_TRUSTED_ORGINS = [
-    "http://127.0.0.1:5173/"
+    "http://127.0.0.1:5173", 
+    "http://localhost:5173"
 ]
 
 
@@ -72,9 +81,10 @@ INSTALLED_APPS = [
 
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

@@ -1,6 +1,6 @@
 <template>
     
-    <h1 class="text-2xl text-lime-300">Home Page</h1>
+    <h1 class="text-2xl text-lime-300 ">Home Page</h1>
 </template>
 
 <script>

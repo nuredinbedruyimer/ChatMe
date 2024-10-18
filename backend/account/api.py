@@ -5,6 +5,17 @@ from rest_framework.decorators import api_view , authentication_classes, permiss
 
 
 from .forms import SignupForm
+from .models import User
+
+@api_view(["GET"])
+def me(request):
+    return JsonResponse({
+        "id":request.user.id,
+        "name":request.user.name,
+        "email":request.user.email,
+        
+    })
+    
 
 
 @api_view(["POST"])
@@ -13,8 +24,14 @@ from .forms import SignupForm
 def signup(request):
     data = request.data
     
-    
     message = "Success"
+    
+
+    
+    
+    
+    
+   
     
     form = SignupForm({
         "email":data.get("email"), 
@@ -24,10 +41,10 @@ def signup(request):
     })
     
     if form.is_valid():
-        #  Email Verification And Staff Comming Next
+        #  Email Verification And Staff Here
         
         form.save()
     else:
         message = "Failure"
     
-    return  JsonResponse({"Status": message})
+    return  JsonResponse({"message": message})

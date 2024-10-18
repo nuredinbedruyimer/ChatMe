@@ -3,7 +3,7 @@ import {defineStore} from "pinia"
 import axios from "axios";
 
 
-const useUserStore = defineStore({
+export const useUserStore = defineStore({
     id:"user", 
     state:()=>({
         user:{
@@ -17,7 +17,9 @@ const useUserStore = defineStore({
     }),
     actions:{
         initStore(){
+            console.log("I Am Here Tho : ", localStorage.getItem("user.access"))
             if (localStorage.getItem("user.access")){
+                console.log("User Access Is Verified")
                 this.user.access = localStorage.getItem("user.access")
                 this.user.refresh = localStorage.getItem("user.refresh")
                 this.user.id = localStorage.getItem("user.id")
@@ -38,6 +40,7 @@ const useUserStore = defineStore({
             this.user.isAuthenticated = true
             localStorage.setItem("user.access", data.access)
             localStorage.setItem("user.refresh", data.refresh)
+            console.log("Set Token Here : ", localStorage.getItem("user.access"))
 
         },
     removeToken(){
@@ -70,7 +73,7 @@ const useUserStore = defineStore({
         console.log("User : ", this.user)
     }, 
     refreshToken(){
-        axios.post("api/account/refresh", {
+        axios.post("api/account/refresh/", {
             refresh:this.user.refresh
         }).then((response)=>{
             this.user.access = response.data.access

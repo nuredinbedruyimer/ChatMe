@@ -4,11 +4,12 @@
 
 
         <main class="px-8 py-6 bg-gray-100">
-            <div class="max-w-7xl mx-auto grid grid-cols-4 gap-4">
+            <div class="max-w-7xl mx-auto grid lg:grid-cols-4  grid-cols-1 gap-4">
                 <div class="main-left col-span-1">
-                    <div class="p-4 bg-white border border-gray-200 text-center rounded-lg">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIDkATaMJuWJtFtBuKmBjktirW2E0RjdsA5g&s" alt="" class=" rounded-full">                        
-                        <p><strong>Code With Stein</strong></p>
+                    <div class=" bg-white border border-gray-200  rounded-lg">
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIDkATaMJuWJtFtBuKmBjktirW2E0RjdsA5g&s" alt="" class=" rounded-full w-32 h-32 ">                        
+                        <p><strong> Name Placed here </strong></p>
+                    
 
                         <div class="mt-6 flex space-x-8 justify-around">
                             <p class="text-xs text-gray-500">182 friends</p>
